@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Exercice 4</title>
+</head>
+<body>
+  <div class="container-fluid text-center">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-3">Exercice 4 - JQuery</h1>
+        <h3>Partie 3</h3>
+        <p class="lead">Actions sur le rectangle</p>
+      </div>
+    </div>
+      <button type="button" name="button" id="modif">Modification</button>
+      <button type="button" name="button" id="vert">Vert</button>
+      <button type="button" name="button" id="razColor">RaZ couleur</button>
+      <button type="button" name="button" id="hide">Cache</button>
+      <button type="button" name="button" id="show">Apparait</button>
+    <div>
+      <canvas class="mt-4" id="myCanvas" width="150" height="80" style="border:1px solid black;"></canvas>
+    </div>
+  </div>
+  <script src="assets\js\jquery-3.3.1.min.js"></script>
+  <script>
+
+    $(document).ready(function(){
+      // Fonction modifiant la hauteur du canvas
+      $("#modif").click(function() {
+        // On récupère la hauteur du canvas
+        var hauteur = +$("#myCanvas").attr("height");
+        // console.log(hauteur);
+        // Si inférieur à 100
+        if (hauteur < 100) {
+          // console.log("Moins de 100");
+          // On modifie l'attribut hauteur
+          $("#myCanvas").attr("height", hauteur+10);
+          // console.log($("#myCanvas").attr("height"));
+          // Sinon c'est plus grand
+        } else {
+          // console.log("Plus de 100");
+          // Et on réinitialise la hauteur du canvas
+          $("#myCanvas").attr("height", "10");
+        }
+      })
+      // Modif du background color
+      $("#vert").click(function() {
+        $("#myCanvas").css("background-color", "green");
+      })
+      // Réinitialisation du background color
+      $("#razColor").click(function() {
+        $("#myCanvas").css("background-color", "");
+      })
+      // Cache le canvas
+      $("#hide").click(function() {
+        $("#myCanvas").hide();
+      })
+      // Fait apparaitre le canvas
+      $("#show").click(function() {
+        $("#myCanvas").show()
+      })
+    });
+  </script>
+</body>
+</html>
